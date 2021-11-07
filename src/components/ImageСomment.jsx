@@ -7,11 +7,11 @@ const ImageСomment = ({data}) => {
     moment.locale('ru')
     if (data && data.length>0){
         return (
-            <div className='comments'>
+            <div className='comment'>
                 {data.map((comment) =>
                     <div key={comment.id}>
-                        <ol className='comments_date'>{moment(comment.date).format('L')}</ol>
-                        <ol className='comments_text'>{comment.text} </ol>
+                        <div className='comment_date'>{moment(comment.date).format('L')}</div>
+                        <div className='comment_text'>{comment.text} </div>
                     </div>
                 )}
             </div>
@@ -19,9 +19,8 @@ const ImageСomment = ({data}) => {
         );
     }
 
-
     return (
-        <div className='comments comments_text'>
+        <div className='comment'>
             Нет комментариев
         </div>
     );

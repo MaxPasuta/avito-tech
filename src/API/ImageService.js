@@ -12,13 +12,14 @@ export default class ImageService {
     }
 
     static async postAddComment(id,name,text) {
-        let bodyFormData = new FormData();
-        bodyFormData.append(name, text);
+        console.log(id, name, text)
         const response = await axios({
-            method: "post",
-            url: "myurl",
-            data: bodyFormData,
-            headers: { "Content-Type": "https://boiling-refuge-66454.herokuapp.com/images/"+id+"/comments" },
+            method: 'post',
+            url: `https://boiling-refuge-66454.herokuapp.com/images/${id}/comments`,
+            data: {
+                name:name,
+                test:text,
+            }
         })
             .then(function (response) {
                 //handle success

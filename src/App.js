@@ -38,9 +38,11 @@ function App() {
 
     const addNewComment = (e) => {
         e.preventDefault()
-
-
-        setComment({title: '', body: ''})
+        const newComment = {
+            ...comment
+        }
+        response()
+        setComment({name: '', body: ''})
     }
 
 
@@ -50,11 +52,11 @@ function App() {
             <h1>TEST APP</h1>
             <ImageList images={images} setImageId = {setImageId}  setDataImage = {setDataImage} setVisible={setModal}></ImageList>
             <MyModal visible={modal} setVisible={setModal}>
-                <div className="content">
-                    <img className='pix' src={dataImage.url} alt='image'/>
-                    <ImageСomment data={dataImage.comments}></ImageСomment>
+                <div className="container">
+                    <img className='image' src={dataImage.url} alt='image'/>
+                    <ImageСomment className='comments' data={dataImage.comments}></ImageСomment>
                     <button className='exit_btn' onClick={() => setModal(false)}>&times;</button>
-                    <form onSubmit={response}>
+                    <form className='comment_form'>
                         <MyInput value={comment.name}
                                  onChange={e => setComment({...comment, name: e.target.value})}
                                  type="text"
@@ -67,7 +69,11 @@ function App() {
                     </form>
                 </div>
             </MyModal>
-
+            <div className="footer">
+                <div className="footer_line"></div>
+                <div className="footer_content">© 2018-2019
+                </div>
+            </div>
         </div>
     );
 }
